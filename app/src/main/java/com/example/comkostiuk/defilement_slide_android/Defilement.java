@@ -83,6 +83,18 @@ public class Defilement extends Service {
             }
         }, 5000);
 
+
+        //On met en place un timer pour arreter le service au bout de 2 heures
+        Timer end = new Timer();
+
+        end.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                Toaster.toast("Fin du cours!!!");
+                onDestroy();
+            }
+        },2 * 60 * 60 * 1000);
+
         return START_STICKY;
     }
 
